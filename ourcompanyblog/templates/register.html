@@ -5,12 +5,22 @@
         <h1 class="display-5 fw-bold">Register on Our Company Blog!</h1>
         <p class="col-md-8 fs-4">Please provide your credentials to register.</p>
         <form method="POST">
-          {{form.hidden_tag()}}
-            {{form.email.label}}{{form.email}}<br>
-            {{form.username.label}}{{form.username}}<br>
-            {{form.password.label}}{{form.password}}<br>
-            {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-            {{form.submit(class="btn btn-primary btn-lg")}}
+            {{form.hidden_tag()}}
+            <div class="mb-3">
+                {{form.email.label(class="form-label")}}{{form.email(class="form-control")}}<br>
+            </div>
+            <div class="mb-3">
+                {{form.username.label(class="form-label")}}{{form.username(class="form-control")}}<br>
+            </div>
+            <div class="mb-3">
+                {{form.password.label(class="form-label")}}{{form.password(class="form-control")}}<br>
+            </div>
+            <div class="mb-3">
+                {{form.pass_confirm.label(class="form-label")}}{{form.pass_confirm(class="form-control")}}<br>
+            </div>
+                {{form.submit(class="btn btn-primary btn-lg")}}
+
+
         </form>
       </div>
     </div>
