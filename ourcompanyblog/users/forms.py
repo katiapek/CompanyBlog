@@ -5,6 +5,7 @@ from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
 from ourcompanyblog.models import User
+import email_validator
 
 
 class LoginForm(FlaskForm):
