@@ -1,13 +1,16 @@
 # core/views.py
 
 from flask import render_template, request, Blueprint
+from ourcompanyblog.models import BlogPost
 
 core = Blueprint('core', __name__)
 
 
 @core.route('/')
 def index():
-    return render_template('index.html')
+    page = request.args.get('page', 1, type=int)
+    blog_posts = BlogPost.query.order_by(BlogPost.date.desc()).paginate(page=page,per_page=9)
+    return render_template('index.html', blog_posts=blog_posts)
 
 
 @core.route('/info')
