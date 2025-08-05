@@ -40,9 +40,9 @@ class BlogPost(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    date = db.Column(db.Dateime, nullable=False, default=datetime.utcnow)
-    title = db.Columns(db.String(140), nullable=False)
-    text = db.Columns(db.Text, nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    title = db.Column(db.String(140), nullable=False)
+    text = db.Column(db.Text, nullable=False)
 
     def __init__(self, title, text, user_id):
         self.title = title

@@ -31,6 +31,13 @@ login_manager.login_view = 'users.login'
 # Import Blueprints #
 #####################
 from ourcompanyblog.core.views import core
+from ourcompanyblog.users.views import users
 from ourcompanyblog.error_pages.handlers import error_pages
 app.register_blueprint(core)
+app.register_blueprint(users)
 app.register_blueprint(error_pages)
+
+#####################
+# SECRET KEY ########
+#####################
+app.config['SECRET_KEY'] = 'mykeyissecret'
