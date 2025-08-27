@@ -9,7 +9,7 @@ A full-stack blog platform built with Flask, PostgreSQL, and Bootstrap 5
 ![Screenshot of Our Company Blog](screenshots/home.png)  
 
 
-Live demo: [ClockTrades Blog Demo](#) *(to be added)*
+Live demo: *(to be added)* 😊
 
 ---
 
