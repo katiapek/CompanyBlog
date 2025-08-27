@@ -5,6 +5,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from dotenv import load_dotenv
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv()
+
+db_file = os.getenv('SQLITE_DB')
+db_path = os.path.join(basedir, db_file)
 
 app = Flask(__name__)
 
@@ -12,8 +19,7 @@ app = Flask(__name__)
 #####################
 # DATABASE SETUP ####
 #####################
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -42,4 +48,4 @@ app.register_blueprint(error_pages)
 #####################
 # SECRET KEY ########
 #####################
-app.config['SECRET_KEY'] = 'mykeyissecret'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
