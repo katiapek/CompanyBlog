@@ -1,33 +1,58 @@
 {% extends "base.html" %}
-{% block content %}
-<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Welcome to the page for {{user.username}}</h1>
-        <img src="{{url_for('static', filename='profile_pics/'+user.profile_image)}}" alt="Profile Picture">
-        <div class="container">
-          {% for post in blog_posts.items %}
-          <h2><a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
-          Written By: <a href="url_for('users.user_posts', username=post.author.username)">{{post.author.username}}</a>
-          <p class="text-muted">Published on: {{post.date.strftime('%Y-%m-%d')}}</p><br>
-          <p>{{post.text}}</p>
-          {% endfor %}
 
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-6">
+      <div class="card shadow-sm rounded-3 p-4 text-center">
+        <h2 class="fw-bold mb-3">Welcome to {{ user.username }}'s Page</h2>
+        <img src="{{ url_for('static', filename='profile_pics/' + user.profile_image) }}"
+             alt="Profile Picture"
+             class="rounded-circle img-fluid mb-3"
+             style="max-width: 150px; height: auto;">
+      </div>
+    </div>
+  </div>
+
+  <!-- User Posts -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      {% for post in blog_posts.items %}
+      <div class="card shadow-sm rounded-3 mb-4">
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="text-decoration-none">{{ post.title }}</a>
+          </h4>
+          <p class="text-muted mb-1">
+            Written By: <a href="{{ url_for('users.user_posts', username=post.author.username) }}" class="text-primary">{{ post.author.username }}</a>
+          </p>
+          <p class="text-muted mb-2">Published on: {{ post.date.strftime('%Y-%m-%d') }}</p>
+          <p class="mb-0">{{ post.text }}</p>
         </div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      </div>
+      {% endfor %}
+
+      <!-- Pagination -->
+      <nav aria-label="User posts pagination">
+        <ul class="pagination justify-content-center">
+          {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
               {% if blog_posts.page == page_num %}
-              <li class="page-item disabled">
-                <a class="page-link" href="url_for('users.user_posts', username=user.username, page=page_num)">{{page_num}}</a>
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">{{ page_num }}</span>
               </li>
               {% else %}
               <li class="page-item">
-                <a class="page-link" href="url_for('users.user_posts', username=user.username, page=page_num)">{{page_num}}</a>
+                <a class="page-link" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
               </li>
               {% endif %}
-            {% endfor %}
-          </ul>
-        </nav>
-      </div>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">…</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
     </div>
+  </div>
+</div>
 {% endblock %}

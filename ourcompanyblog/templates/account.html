@@ -1,20 +1,46 @@
 {% extends "base.html" %}
-{% block content %}
-<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Welcome to the page for {{current_user.username}}</h1>
-          <img align="center" src="{{url_for('static',filename='profile_pics/'+current_user.profile_image)}}" alt="Profile Picture">
 
-        <div class="container">
-          <p class="col-md-8 fs-4">Please provide your credentials to register.</p>
-            <form method="POST" action="" enctype="multipart/form-data">
-              {{form.hidden_tag()}}
-                {{form.email.label}}{{form.email}}<br>
-                {{form.username.label}}{{form.username}}<br>
-                {{form.picture.label}}{{form.picture}}<br>
-                {{form.submit(class="btn btn-primary btn-lg")}}
-            </form>
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-sm rounded-3 p-4">
+        <h2 class="card-title text-center fw-bold mb-4">Welcome, {{ current_user.username }}!</h2>
+
+        <!-- Profile Picture -->
+        <div class="text-center mb-4">
+          <img src="{{ url_for('static', filename='profile_pics/' + current_user.profile_image) }}"
+               alt="Profile Picture"
+               class="rounded-circle img-fluid"
+               style="max-width: 150px; height: auto;">
         </div>
+
+        <p class="text-center text-muted mb-4">Update your credentials.</p>
+
+        <form method="POST" action="" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+
+          <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="Enter your email") }}
+          </div>
+
+          <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="Choose a username") }}
+          </div>
+
+          <div class="mb-3">
+            {{ form.picture.label(class="form-label") }}
+            {{ form.picture(class="form-control") }}
+          </div>
+
+          <div class="d-grid">
+            {{ form.submit(class="btn btn-primary btn-lg") }}
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+</div>
 {% endblock %}

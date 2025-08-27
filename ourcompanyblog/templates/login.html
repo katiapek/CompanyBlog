@@ -1,15 +1,38 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Log In To Our Company Blog!</h1>
-        <p class="col-md-8 fs-4">Please provide your credentials to Log In.</p>
-        <form method="POST">
-          {{form.hidden_tag()}}
-            {{form.email.label}}{{form.email}}<br>
-            {{form.password.label}}{{form.password}}<br>
-            {{form.submit(class="btn btn-primary btn-lg")}}
-        </form>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm rounded-3">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center fw-bold mb-3">Log In</h2>
+          <p class="text-center text-muted mb-4">Please provide your credentials to log in.</p>
+
+          <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+              {{ form.email.label(class="form-label") }}
+              {{ form.email(class="form-control", placeholder="Enter your email") }}
+            </div>
+
+            <div class="mb-3">
+              {{ form.password.label(class="form-label") }}
+              {{ form.password(class="form-control", placeholder="Enter your password") }}
+            </div>
+
+            <div class="d-grid">
+              {{ form.submit(class="btn btn-primary btn-lg") }}
+            </div>
+          </form>
+
+          <p class="text-center mt-3 text-muted">
+            Don't have an account? <a href="{{ url_for('users.register') }}" class="text-primary">Sign Up</a>
+          </p>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 {% endblock %}

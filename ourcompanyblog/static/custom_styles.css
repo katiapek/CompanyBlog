@@ -1,0 +1,68 @@
+:root {
+      --bs-primary: #20c997; /* Teal */
+      --bs-primary-rgb: 32, 201, 151;
+
+      /* Pagination */
+      --bs-pagination-active-bg: #20c997;
+      --bs-pagination-active-border-color: #20c997;
+      --bs-pagination-hover-color: #20c997;
+}
+
+.btn-primary {
+  background-color: #20c997 !important;
+  border-color: #20c997 !important;
+}
+
+.btn-primary:hover {
+  background-color: #1aa179 !important;
+  border-color: #1aa179 !important;
+}
+
+.btn-primary:active {
+background-color: #198f6e !important;
+border-color: #198f6e !important;
+}
+
+/* Force teal styling on feature buttons (outline-primary) */
+.btn-outline-primary {
+  color: #20c997 !important;           /* Text color */
+  border-color: #20c997 !important;    /* Border color */
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #20c997 !important; /* Teal background on hover */
+  color: #fff !important;               /* White text on hover */
+  border-color: #20c997 !important;     /* Keep border teal */
+}
+
+.btn-outline-primary:active {
+  background-color: #198f6e !important; /* Slightly darker teal on click */
+  color: #fff !important;
+  border-color: #198f6e !important;
+}
+
+/* Pagination */
+.page-item.active .page-link {
+background-color: #20c997 !important;
+border-color: #20c997 !important;
+color: #fff !important;
+}
+
+.page-link {
+color: #20c997;
+}
+
+.page-link:hover {
+color: #1aa179;
+}
+
+.card-title a {
+  color: #20c997 !important;  /* Teal */
+  text-decoration: none;       /* Optional: remove underline */
+}
+
+.card-title a:hover {
+  color: #198f6e !important;  /* Darker teal on hover */
+  text-decoration: underline;  /* Optional hover effect */
+}

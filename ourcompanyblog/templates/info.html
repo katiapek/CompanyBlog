@@ -1,13 +1,69 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="bg-secondary">
-  <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Info About Our Company</h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+<div class="container py-5">
+
+  <!-- Main Intro Card -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-8">
+      <div class="card shadow-sm rounded-3 p-5 bg-light">
+        <h1 class="display-5 fw-bold mb-3">About Our Company</h1>
+        <p class="fs-5 text-muted mb-4">
+          Welcome to Our Company! We are dedicated to providing top-quality services and solutions to our clients.
+          With years of experience and a commitment to excellence, we strive to innovate and deliver results that matter.
+        </p>
+        <p class="fs-5 text-muted mb-4">
+          Our team of experts specializes in creating reliable, efficient, and user-friendly applications.
+          We believe in a client-focused approach and transparent communication to ensure every project exceeds expectations.
+        </p>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary btn-lg">Contact Us</a>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm rounded-3 p-4">
+        <div class="mb-3">
+          <i class="bi bi-lightbulb fs-1 text-primary"></i> <!-- Bootstrap Icons -->
+        </div>
+        <h4 class="fw-bold mb-3">Our Mission</h4>
+        <p class="text-muted">
+          To innovate and deliver exceptional solutions that empower businesses to succeed in a rapidly evolving digital world.
+        </p>
+        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm rounded-3 p-4">
+        <div class="mb-3">
+          <i class="bi bi-people fs-1 text-primary"></i>
+        </div>
+        <h4 class="fw-bold mb-3">Our Team</h4>
+        <p class="text-muted">
+          A group of dedicated professionals with diverse skills and expertise, committed to achieving outstanding results.
+        </p>
+        <a href="#" class="btn btn-outline-primary btn-sm">Meet the Team</a>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm rounded-3 p-4">
+        <div class="mb-3">
+          <i class="bi bi-gear fs-1 text-primary"></i>
+        </div>
+        <h4 class="fw-bold mb-3">Our Services</h4>
+        <p class="text-muted">
+          Offering a full suite of services including web development, application design, and consulting for businesses of all sizes.
+        </p>
+        <a href="#" class="btn btn-outline-primary btn-sm">Explore Services</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 {% endblock %}
-
